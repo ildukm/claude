@@ -1,0 +1,34 @@
+# === 세션/히스토리 (머신별, 용량 큼) ===
+history.jsonl
+sessions/
+session-env/
+shell-snapshots/
+file-history/
+
+# === 캐시 ===
+cache/
+paste-cache/
+stats-cache.json
+mcp-needs-auth-cache.json
+
+# === 디버그/로그/텔레메트리 ===
+debug/
+telemetry/
+statsig/
+
+# === 민감/개인 데이터 ===
+policy-limits.json
+
+# === 작업 상태 (머신별) ===
+plans/
+tasks/
+todos/
+backups/
+projects/
+downloads/
+ide/
+plugins/
+usage-data/
+
+# === OS ===
+.DS_Store
