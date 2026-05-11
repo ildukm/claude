@@ -6,7 +6,7 @@
   "permissions": {
     "allow": [],
     "deny": [],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "sandbox": {
     "enabled": true,
@@ -14,12 +14,21 @@
     "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
     "network": {
-      "allowedDomains": ["api.github.com"],
+      "allowedDomains": [
+        "api.github.com",
+        "registry.npmjs.org",
+        "registry.yarnpkg.com",
+        "telemetry.vercel.com"
+      ],
       "allowLocalBinding": true
     },
     "filesystem": {
-      "allowWrite": ["/tmp"]
+      "allowWrite": [
+        "/tmp"
+      ]
     },
     "enableWeakerNetworkIsolation": true
-  }
+  },
+  "effortLevel": "medium",
+  "skipAutoPermissionPrompt": true
 }
