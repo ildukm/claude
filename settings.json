@@ -29,6 +29,10 @@
     },
     "enableWeakerNetworkIsolation": true
   },
+  "statusLine": {
+    "type": "command",
+    "command": "sh /Users/charlie/.claude/statusline-command.sh"
+  },
   "effortLevel": "medium",
   "skipAutoPermissionPrompt": true
 }
