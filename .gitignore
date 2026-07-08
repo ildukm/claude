@@ -1,34 +1,18 @@
-# === 세션/히스토리 (머신별, 용량 큼) ===
-history.jsonl
-sessions/
-session-env/
-shell-snapshots/
-file-history/
+# Whitelist 방식: 전부 무시하고 공유할 설정만 명시적으로 허용.
+# ~/.claude 에는 Claude Code가 런타임 파일(세션, 캐시, 데몬 상태 등)을
+# 계속 새로 만들기 때문에 denylist는 버전업마다 깨진다.
+# 새로 공유할 파일이 생기면 아래에 !/<파일> 항목을 추가할 것.
+/*
 
-# === 캐시 ===
-cache/
-paste-cache/
-stats-cache.json
-mcp-needs-auth-cache.json
+# === 공유 대상 ===
+!/.gitignore
+!/CLAUDE.md
+!/settings.json
+!/statusline-command.sh
+!/skills/
+!/agents/
+!/commands/
 
-# === 디버그/로그/텔레메트리 ===
-debug/
-telemetry/
-statsig/
-
-# === 민감/개인 데이터 ===
-policy-limits.json
-
-# === 작업 상태 (머신별) ===
-plans/
-tasks/
-todos/
-backups/
-projects/
-downloads/
-ide/
-plugins/
-usage-data/
-
-# === OS ===
+# === 공유 대상 디렉토리 안에서도 제외 ===
 .DS_Store
+*.local.json
