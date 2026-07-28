@@ -2,7 +2,9 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {},
   "permissions": {
-    "allow": ["Write(//tmp/**)"],
+    "allow": [
+      "Edit(//tmp/**)"
+    ],
     "deny": [],
     "defaultMode": "auto"
   },
@@ -26,11 +28,19 @@
       "allowLocalBinding": true
     },
     "filesystem": {
-      "allowWrite": ["/tmp"]
+      "allowWrite": [
+        "/tmp"
+      ]
     },
-    "enableWeakerNetworkIsolation": true
+    "enableWeakerNetworkIsolation": true,
+    "excludedCommands": [
+      "git *",
+      "yarn *",
+      "kubectl *"
+    ]
   },
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "skipWorkflowUsageWarning": true,
+  "theme": "auto",
   "skipAutoPermissionPrompt": true
 }
