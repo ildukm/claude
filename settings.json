@@ -12,6 +12,25 @@
     "type": "command",
     "command": "sh /Users/charlie/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "atlassian@ecubelabs-agent-hub": true,
+    "git-workflow@ecubelabs-agent-hub": true,
+    "harness@harness-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "ecubelabs-agent-hub": {
+      "source": {
+        "source": "github",
+        "repo": "Ecube-Labs/agent-hub"
+      }
+    },
+    "harness-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "revfactory/harness"
+      }
+    }
+  },
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
