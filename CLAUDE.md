@@ -7,6 +7,9 @@
   - [Simplicity First](#2-simplicity-first)
   - [Surgical Changes](#3-surgical-changes)
   - [Goal-Driven Execution](#4-goal-driven-execution)
+- [커뮤니케이션 가이드라인](#커뮤니케이션-가이드라인)
+  - [질문 작성](#1-질문-작성)
+  - [Wait-What Test](#2-wait-what-test)
 - [Git 작업](#git-작업)
 - [Atlassian 작업](#atlassian-작업)
   - [이슈 생성](#이슈-생성)
@@ -80,6 +83,46 @@ For multi-step tasks, state a brief plan:
 ```
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+
+## 커뮤니케이션 가이드라인
+
+### 1. 질문 작성
+
+**Context first. One decision per question. Plain language.**
+
+사용자에게 질문(AskUserQuestion 포함)하거나 결정을 요청할 때:
+
+- 세션 맥락이 없는 독자 기준으로 작성할 것. 대화 중에 만든 축약 라벨(예: `BD-9`, `D-12`)을 설명 없이 쓰지 말 것.
+- 질문 전에 배경을 먼저 쓸 것: 무엇을 하다가 → 무엇을 발견했고 → 왜 결정이 필요한지.
+- 질문 하나에는 결정 하나만 담을 것. 괄호 안에 경로/조건을 나열하지 말 것.
+- 문장 규칙 (ASD-STE100 Simplified Technical English 기반):
+  - 한 문장에 하나의 내용, 20단어 이내
+  - 능동태로 쓸 것
+  - 명사를 3개 이상 연달아 붙이지 말 것 (예: "현 소유자 보유분 전량 이관" ❌)
+  - 중첩 괄호 금지
+- 용어는 사용자가 실제로 쓰는 용어를 그대로 쓸 것. 모르는 용어는 [약어 및 용어](#약어-및-용어) 절차로 확인할 것.
+- 옵션 label은 일상 언어로 된 선택지, description은 선택하면 무슨 일이 일어나는지를 완결된 문장으로 쓸 것.
+
+```
+# Bad - 맥락 없음, 중첩 괄호, 명사 나열, 결정 사항이 섞임
+풀 준비 migration으로 편입되는 리드의 리셋 여부 (리뷰 에스컬레이션): '도착 즉시
+전체 리셋' 단일 규칙의 경로 열거(+7일 잡/drop·discard 라우팅/퇴사 복귀)에
+migration 경로(현 소유자 보유분 전량 이관)가 빠져 있습니다.
+
+# Good - 배경 → 문제 → 단일 질문
+migration 스크립트를 리뷰하다가 빠진 케이스를 발견했습니다.
+기존 규칙: 리드가 풀에 도착하면 상태를 전부 리셋합니다.
+그런데 migration으로 편입되는 리드는 이 리셋을 거치지 않습니다.
+이 리드들도 편입 시점에 리셋할까요?
+```
+
+### 2. Wait-What Test
+
+**If the reader would say "wait, what?", re-pitch it.**
+
+- 보내기 전 셀프 체크: 이 질문/보고를 처음 보는 동료가 되묻지 않고 이해할 수 있는가?
+- 아니라면 다시 쓸 것: 맥락을 추가하고, 문장을 쪼개고, 축약어를 풀어 쓸 것.
+- 사용자가 되물으면(이해 못 하겠다는 반응 포함) 같은 문장을 반복하지 말고 위 규칙대로 처음부터 다시 설명할 것.
 
 ## Git 작업
 
