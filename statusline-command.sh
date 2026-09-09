@@ -6,6 +6,9 @@ dir=$(basename "$cwd")
 model=$(echo "$input" | jq -r '.model.display_name')
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
+session_used=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty | round')
+week_used=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty | round')
+
 
 # Git branch and dirty status
 ESC=$(printf '\033')
@@ -34,4 +37,9 @@ if [ -n "$effort" ]; then
   effort_part=" · ${effort}"
 fi
 
-printf "\033[1;36m%s\033[0m%s  \033[38;5;141m%s\033[0;90m%s\033[38;5;211m%s\033[0;90m%s\033[38;5;215m%s\033[0m" "$dir" "$git_info" "$model" "${effort_part:+ · }" "${effort:-}" "${ctx_part:+ · }" "${ctx_part# · }"
+usage_part=""
+if [ -n "$session_used" ] || [ -n "$week_used" ]; then
+  usage_part=" · ${ESC}[38;5;120m5h $((100 - ${session_used:-0}))%${ESC}[0;90m/${ESC}[38;5;120m7d $((100 - ${week_used:-0}))%${ESC}[0m left"
+fi
+
+printf "\033[1;36m%s\033[0m%s  \033[38;5;141m%s\033[0;90m%s\033[38;5;211m%s\033[0;90m%s\033[38;5;215m%s\033[0m%s" "$dir" "$git_info" "$model" "${effort_part:+ · }" "${effort:-}" "${ctx_part:+ · }" "${ctx_part# · }" "$usage_part"
