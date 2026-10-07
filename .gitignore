@@ -16,3 +16,4 @@
 # === 공유 대상 디렉토리 안에서도 제외 ===
 .DS_Store
 *.local.json
+/skills/synced/
