@@ -15,6 +15,13 @@ ESC=$(printf '\033')
 branch=""
 git_info=""
 if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
+  # worktree 에서도 repository 이름이 보이도록 origin URL → 메인 체크아웃 폴더명 순으로 사용
+  remote=$(git -C "$cwd" remote get-url origin 2>/dev/null)
+  if [ -n "$remote" ]; then
+    dir=$(basename "${remote%.git}")
+  else
+    dir=$(basename "$(dirname "$(git -C "$cwd" rev-parse --path-format=absolute --git-common-dir 2>/dev/null)")")
+  fi
   branch=$(git -C "$cwd" symbolic-ref --short HEAD 2>/dev/null || git -C "$cwd" rev-parse --short HEAD 2>/dev/null)
   dirty=$(git -C "$cwd" status --porcelain 2>/dev/null)
   if [ -n "$branch" ]; then
