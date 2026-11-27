@@ -11,6 +11,8 @@
   - [질문 작성](#1-질문-작성)
   - [Wait-What Test](#2-wait-what-test)
 - [Git 작업](#git-작업)
+- [Orca 작업](#orca-작업)
+  - [다른 워크트리에 작업 넘기기](#다른-워크트리에-작업-넘기기)
 - [Atlassian 작업](#atlassian-작업)
   - [이슈 생성](#이슈-생성)
   - [Epic 참조](#epic-참조)
@@ -123,8 +125,17 @@ migration 스크립트를 리뷰하다가 빠진 케이스를 발견했습니다
 - git commit, push 할 때 항상 `git-workflow:commit-and-push` skill을 사용할 것
 - `git-workflow:commit-and-push` skill을 이용해서 작업 푸시 뒤 PR을 생성할건지 물어볼 것
 - PR 생성 요청 시 `git-workflow:create-pull-request` skill을 사용할 것
+
+## Orca 작업
+
+### 다른 워크트리에 작업 넘기기
+
 - 다른 워크트리에서 커밋·푸시까지 해야 하는 작업은 `orca worktree create --agent ... --prompt ...`로 그 워크트리에 에이전트를 띄워 넘길 것
   - 이유: 현재 세션에서 `git -C <dir> ...`로 실행하면 샌드박스 제외가 적용되지 않아 `.git/config` 쓰기(`push -u` 등)가 막힘
+- 넘기는 요청(`--prompt`, orca handoff)에는 완료 기준을 [할 일] 안에, 확인할 수 있는 상태로 쓸 것
+  - 예: "`specs/*/plan.md`에 feature 폴더 트리가 하나도 남지 않는다"
+- 포맷, 공백, 링크, 미러 검사 같은 검증은 받는 쪽의 pre-commit hook, CI, 스킬에 맡길 것
+  - 이유: 받는 쪽은 요청에 적힌 항목을 모두 지시로 읽는다. 그래서 hook과 CI가 하는 검사를 다시 하고, 결과를 PR 본문에도 옮긴다.
 
 ## Atlassian 작업
 
