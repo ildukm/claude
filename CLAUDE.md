@@ -206,8 +206,3 @@ kubectl --context=$CONTEXT -n monitoring get configmap filebeat-config
 # Good - 권한 패턴에 매칭됨
 kubectl --context=$CONTEXT get configmap filebeat-config -n monitoring
 ```
-
-## 약어 및 용어
-
-- 일반적으로 통용되는 약어가 아닌 경우 회사 내부 약어일 수 있음
-- 이런 경우 `knowledge-base` MCP를 사용하여 의미를 확인할 것
