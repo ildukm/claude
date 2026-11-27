@@ -21,7 +21,6 @@
 - [Kubernetes 작업](#kubernetes-작업)
   - [Context 선택](#context-선택)
   - [kubectl 명령어 순서](#kubectl-명령어-순서)
-- [약어 및 용어](#약어-및-용어)
 
 ## 코딩 가이드라인
 
@@ -102,7 +101,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
   - 능동태로 쓸 것
   - 명사를 3개 이상 연달아 붙이지 말 것 (예: "현 소유자 보유분 전량 이관" ❌)
   - 중첩 괄호 금지
-- 용어는 사용자가 실제로 쓰는 용어를 그대로 쓸 것. 모르는 용어는 [약어 및 용어](#약어-및-용어) 절차로 확인할 것.
+- 용어는 사용자가 실제로 쓰는 용어를 그대로 쓸 것.
 - 옵션 label은 일상 언어로 된 선택지, description은 선택하면 무슨 일이 일어나는지를 완결된 문장으로 쓸 것.
 
 ```
